@@ -63,7 +63,7 @@ public class PersonaServ extends HttpServlet {
             else if(CRUD.equals("Consultar"))
             {
                 int codi = Integer.parseInt(request.getParameter("codiEquiRadi").isEmpty() ? "-1" : request.getParameter("codiEquiRadi"));
-                Personas obje = new PersonasCtrl().consTodo2(codi);
+                Personas obje = new PersonaCtrl().consTodo2(codi);
                 if(obje != null)
                 {
                     request.setAttribute("codi", obje.getCodiPiez());
@@ -78,10 +78,10 @@ public class PersonaServ extends HttpServlet {
             }
             else if(CRUD.equals("Eliminar"))
             {
-                Piezas obje = new Piezas();
+                Personas obje = new Personas();
                 int codi= Integer.parseInt(request.getParameter("codiEquiRadi").isEmpty() ? "-1" : request.getParameter("codiEquiRadi"));
-                obje.setCodiPiez(codi);
-                if(new PiezasCtrl().elim(obje))
+                obje.setCodiPers(codi);
+                if(new PersonaCtrl().elim(obje))
                 {
                     mens="Datos Eliminados";
                 }
@@ -92,7 +92,7 @@ public class PersonaServ extends HttpServlet {
             }
             else if(CRUD.equals("Modificar"))
             {
-                Piezas obje = new Piezas();
+                Personas obje = new Personas();
            
                 System.err.println("Esta en modificar");
                  System.err.println("valor de las variables " + request.getParameter("nomb"));
@@ -103,7 +103,7 @@ public class PersonaServ extends HttpServlet {
                 obje.setTipoPiez(request.getParameter("tipo"));
                 obje.setMarcPiez(request.getParameter("marc"));
                
-                if(new PiezasCtrl().modi(obje))
+                if(new PersonaCtrl().modi(obje))
                 {
                     mens="Datos Modificados";
                 }
