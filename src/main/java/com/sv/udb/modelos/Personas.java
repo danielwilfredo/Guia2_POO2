@@ -15,7 +15,7 @@ public class Personas {
     private String apelPers;
     private byte[] fotoPers;
     private int codiTipoPers;
-    private char genePers;
+    private String genePers;
     private String fechaNaciPers;
     private String duiPers;
     private String nitPers;
@@ -65,11 +65,11 @@ public class Personas {
         this.codiTipoPers = codiTipoPers;
     }
 
-    public char getGenePers() {
+    public String getGenePers() {
         return genePers;
     }
 
-    public void setGenePers(char genePers) {
+    public void setGenePers(String genePers) {
         this.genePers = genePers;
     }
 
@@ -137,7 +137,7 @@ public class Personas {
         this.esta = esta;
     }
 
-    public Personas(int codiPers, String nombPers, String apelPers, byte[] fotoPers, int codiTipoPers, char genePers, String fechaNaciPers, String duiPers, String nitPers, String tipoSangPers, int codiUbicPers, String fechAlta, String fechaBaja, int esta) {
+    public Personas(int codiPers, String nombPers, String apelPers, byte[] fotoPers, int codiTipoPers, String genePers, String fechaNaciPers, String duiPers, String nitPers, String tipoSangPers, int codiUbicPers, String fechAlta, String fechaBaja, int esta) {
         this.codiPers = codiPers;
         this.nombPers = nombPers;
         this.apelPers = apelPers;
@@ -153,6 +153,10 @@ public class Personas {
         this.fechaBaja = fechaBaja;
         this.esta = esta;
     }
+
+    public Personas() {
+    }
+    
     
     
     

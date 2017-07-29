@@ -5,10 +5,235 @@
  */
 package com.sv.udb.controladores;
 
+import com.sv.udb.modelos.Personas;
+import com.sv.udb.recursos.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author DanielWilfredo
  */
 public class PersonaCtrl {
+      public List<Personas> consTodo()
+    {
+       List<Personas> resp = new ArrayList();
+       Connection cn = new Conexion().getConn();
+        try
+        {
+            PreparedStatement cmd = cn.prepareStatement("select * from pers");
+            ResultSet rs = cmd.executeQuery();
+            while(rs.next())
+            {
+                resp.add(new Personas(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getBytes(4), rs.getInt(5),rs.getString(6), rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10), rs.getInt(11), rs.getString(12), rs.getString(13), rs.getInt(14)));
+            }
+            //Se carga el 
+        }
+        catch(Exception err)
+        {
+            err.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                if(cn!=null)
+                {
+                    if(!cn.isClosed())
+                    {
+                        cn.close();
+                    }
+                }
+            }
+            catch(SQLException err)
+            {
+                err.printStackTrace();
+            }
+        }
+        return resp;
+    } 
+    
+    
+    //Codigo para consultar segun el id del registro
+    
+         public Personas consTodo2(int id)
+    {
+      Personas resp = null;
+       Connection cn = new Conexion().getConn();
+        try
+        {
+            PreparedStatement cmd = cn.prepareStatement("select * from pers where codi_pers=?");
+            cmd.setString(1, String.valueOf(id));
+            ResultSet rs = cmd.executeQuery();
+            while(rs.next())
+            {
+                resp = (new Personas(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getBytes(4), rs.getInt(5),rs.getString(6), rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10), rs.getInt(11), rs.getString(12), rs.getString(13), rs.getInt(14)));
+            }
+            //Se carga el 
+        }
+        catch(Exception err)
+        {
+            err.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                if(cn!=null)
+                {
+                    if(!cn.isClosed())
+                    {
+                        cn.close();
+                    }
+                }
+            }
+            catch(SQLException err)
+            {
+                err.printStackTrace();
+            }
+        }
+        return resp;
+    } 
+         
+         
+         //Codigo para guardar
+         
+         public boolean guar(Personas obje)
+    {
+        boolean resp = false;
+        Connection cn = new Conexion().getConn();
+        try
+        {
+            PreparedStatement cmd = cn.prepareStatement("insert into pers values(?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), ?, ?);");
+            cmd.setInt(1, obje.getCodiPers());
+            cmd.setString(2, obje.getNombPers());
+            cmd.setString(3, obje.getApelPers());
+            cmd.setBytes(4, obje.getFotoPers());
+            cmd.setInt(5, obje.getCodiTipoPers());
+            cmd.setString(6, obje.getGenePers());
+            cmd.setString(7, obje.getFechaNaciPers());
+            cmd.setString(8, obje.getDuiPers());
+            cmd.setString(9, obje.getNitPers());
+            cmd.setString(10, obje.getTipoSangPers());
+            cmd.setInt(11, obje.getCodiUbicPers());
+            cmd.setString(12, obje.getFechAlta());
+            cmd.setString(13, obje.getFechaBaja());
+            cmd.setInt(14, obje.getEsta());
+            cmd.executeUpdate();
+            resp=true;
+        }
+        catch(Exception ex)
+        {
+            System.err.println("Error al guardar Miembros: " + ex.getMessage());
+        }
+        finally
+        {
+            try
+            {
+                if(cn!=null)
+                {
+                    if(!cn.isClosed())
+                    {
+                        cn.close();
+                    }
+                }
+            }
+            catch(SQLException err)
+            {
+                err.printStackTrace();
+            }
+        }
+        return resp;
+    }
+         
+         public boolean elim(Personas obje)
+    {
+         boolean resp = false;
+        Connection cn = new Conexion().getConn();
+        try
+        {
+            PreparedStatement cmd = cn.prepareStatement("delete from pers where codi_pers =?");
+            cmd.setString(1, String.valueOf(obje.getCodiPers()));
+            cmd.executeUpdate();
+            resp=true;
+        }
+        catch(Exception ex)
+        {
+            System.err.println("Error al Eliminar el Miembros " + ex.getMessage());
+        }
+        finally
+        {
+            try
+            {
+                if(cn!=null)
+                {
+                    if(!cn.isClosed())
+                    {
+                        cn.close();
+                    }
+                }
+            }
+            catch(SQLException err)
+            {
+                err.printStackTrace();
+            }
+        }
+        return resp;
+    }
+        
+         //Codigo para modificar registros
+         
+          public boolean modi(Personas obje)
+    {
+         boolean resp = false;
+        Connection cn = new Conexion().getConn();
+        try
+        {
+            PreparedStatement cmd = cn.prepareStatement("update pers set NOMB_PERS=?, APEL_PERS=?, FOTO_PERS=?, CODI_TIPO_PERS=?, GENE_PERS=?, FECH_NACI_PERS=?, DUI_PERS=?, NIT_PERS=?, TIPO_SANG_PERS=?, CODI_UBIC_GEOG=?, FECH_ALTA=?, FECH_BAJA=?, ESTA=? where codi_pers=?");
+            cmd.setString(1, String.valueOf(obje.getNombPers())); 
+            cmd.setString(2, String.valueOf(obje.getApelPers()));
+            cmd.setString(3, String.valueOf(obje.getFotoPers()));
+            cmd.setString(4, String.valueOf(obje.getCodiTipoPers()));
+            cmd.setString(5, String.valueOf(obje.getGenePers()));
+            cmd.setString(6, String.valueOf(obje.getFechaNaciPers()));
+            cmd.setString(7, String.valueOf(obje.getDuiPers()));
+            cmd.setString(8, String.valueOf(obje.getNitPers()));
+            cmd.setString(9, String.valueOf(obje.getTipoSangPers()));
+            cmd.setString(10, String.valueOf(obje.getCodiUbicPers()));
+            cmd.setString(11, String.valueOf(obje.getFechAlta()));
+            cmd.setString(12, String.valueOf(obje.getFechaBaja()));
+            cmd.setString(13, String.valueOf(obje.getEsta()));
+            cmd.setString(14, String.valueOf(obje.getCodiPers()));
+            cmd.executeUpdate();
+            resp=true;
+        }
+        catch(Exception ex)
+        {
+            System.err.println("Error al modificar el Jugador " + ex.getMessage());
+        }
+        finally
+        {
+            try
+            {
+                if(cn!=null)
+                {
+                    if(!cn.isClosed())
+                    {
+                        cn.close();
+                    }
+                }
+            }
+            catch(SQLException err)
+            {
+                err.printStackTrace();
+            }
+        }
+        return resp;
+    }
+    
     
 }

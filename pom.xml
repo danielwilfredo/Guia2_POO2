@@ -13,8 +13,31 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <developers>
+        <developer>
+            <id>Wilfredo Granados</id>
+            <email>xvwilito11@gmail.com</email>
+            <organization>Ricaldone</organization>
+            <organizationUrl>https://github.com/danielwilfredo</organizationUrl>
+            <roles>
+                <role>Java Developers</role>
+            </roles>
+            <timezone>-6:00</timezone>
+        </developer>
+    </developers>
 
     <dependencies>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>materialize</artifactId>
+            <version>0.97.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.webjars.bower</groupId>
+                    <artifactId>jquery</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
