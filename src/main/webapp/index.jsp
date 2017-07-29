@@ -24,13 +24,21 @@
              
                   <!--Importante agregarle el enctype"multipart/form-data"-->
             <input hidden type="text" name="codi2" id="codi2" value="${codi}"/><br/>
-                <h5>Codigo Pieza</h5>
+                <h5>Codigo Persona</h5>
             <input disabled class="white-text" type="text" name="codi" id="codi" value="${codi}"/><br/>
-                <h5>Nombre Pieza</h5>
+                <h5>Nombre</h5>
             <input type="text" name="nomb" id="nomb" value="${nomb}"/><br/>
-                <h5>Tipo Pieza</h5>
+                <h5>Apellido</h5>
             <input type="text" name="tipo" id="tipo" value="${tipo}"/><br/><br/>              
-                <h5>Marca Pieza</h5>
+                <h5>Foto</h5>
+            <input type="text" name="marc" id="marc" value="${marc}"/><br/><br/>              
+            <h5>Tipo Persona</h5>
+            <input type="text" name="marc" id="marc" value="${marc}"/><br/><br/>              
+            <h5>Genero</h5>
+            <input type="text" name="marc" id="marc" value="${marc}"/><br/><br/>              
+            <h5>Foto</h5>
+            <input type="text" name="marc" id="marc" value="${marc}"/><br/><br/>              
+            <h5>Foto</h5>
             <input type="text" name="marc" id="marc" value="${marc}"/><br/><br/>              
           </div>
             <div class="card-action">
