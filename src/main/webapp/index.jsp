@@ -11,7 +11,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-      
+      <!--
         <h1>Hello World!</h1>
         
         <form method="POST" action="PiezaServ" name="Demo"> 
@@ -20,10 +20,10 @@
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title">Ingresar Persona</span>
-              <h1>${mensAler}</h1>
+              <h1>${mensAler}</h1> -->
              
                   <!--Importante agregarle el enctype"multipart/form-data"-->
-            <input hidden type="text" name="codi2" id="codi2" value="${codi}"/><br/>
+            <!--<input hidden type="text" name="codi2" id="codi2" value="${codi}"/><br/>
                 <h5>Codigo Persona</h5>
             <input disabled class="white-text" type="text" name="codi" id="codi" value="${codi}"/><br/>
                 <h5>Nombre</h5>
@@ -96,6 +96,5 @@
       </div>
          </form>
     </div>
-    </body>
-    
+    </body>    -->
 </html>

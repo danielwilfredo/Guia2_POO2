@@ -47,9 +47,9 @@ public class PersonaServ extends HttpServlet {
                 System.err.println("valor de las variables " + request.getParameter("tipo"));
                 System.err.println("valor de las variables " + request.getParameter("marc"));
                 Personas obje = new Personas();
-                obje.setNombPiez(request.getParameter("nomb"));
+               /* obje.setNombPiez(request.getParameter("nomb"));
                 obje.setTipoPiez(request.getParameter("tipo"));
-                obje.setMarcPiez(request.getParameter("marc"));
+                obje.setMarcPiez(request.getParameter("marc"));*/
                               
                 if(new PersonaCtrl().guar(obje))
                 {
@@ -66,10 +66,10 @@ public class PersonaServ extends HttpServlet {
                 Personas obje = new PersonaCtrl().consTodo2(codi);
                 if(obje != null)
                 {
-                    request.setAttribute("codi", obje.getCodiPiez());
-                    request.setAttribute("nomb", obje.getNombPiez());
-                    request.setAttribute("tipo", obje.getTipoPiez());
-                    request.setAttribute("marc", obje.getMarcPiez());
+                   // request.setAttribute("codi", obje.getCodiPiez());
+                   // request.setAttribute("nomb", obje.getNombPiez());
+                    //request.setAttribute("tipo", obje.getTipoPiez());
+                    //request.setAttribute("marc", obje.getMarcPiez());
                 }
                 else
                 {
@@ -98,10 +98,10 @@ public class PersonaServ extends HttpServlet {
                  System.err.println("valor de las variables " + request.getParameter("nomb"));
                 System.err.println("valor de las variables " + request.getParameter("tipo"));
                 System.err.println("valor de las variables " + request.getParameter("marc"));
-                obje.setCodiPiez(Integer.parseInt(request.getParameter("codi2")));
-                obje.setNombPiez(request.getParameter("nomb"));
-                obje.setTipoPiez(request.getParameter("tipo"));
-                obje.setMarcPiez(request.getParameter("marc"));
+               // obje.setCodiPiez(Integer.parseInt(request.getParameter("codi2")));
+               // obje.setNombPiez(request.getParameter("nomb"));
+               // obje.setTipoPiez(request.getParameter("tipo"));
+               // obje.setMarcPiez(request.getParameter("marc"));
                
                 if(new PersonaCtrl().modi(obje))
                 {

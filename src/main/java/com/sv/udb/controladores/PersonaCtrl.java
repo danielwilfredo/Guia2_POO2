@@ -29,7 +29,45 @@ public class PersonaCtrl {
             ResultSet rs = cmd.executeQuery();
             while(rs.next())
             {
-                resp.add(new Personas(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getBytes(4), rs.getInt(5),rs.getString(6), rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10), rs.getInt(11), rs.getString(12), rs.getString(13), rs.getInt(14)));
+                resp.add(new Personas(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getBytes(4), rs.getInt(5),rs.getString(6), rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10), rs.getInt(11), rs.getString(12), rs.getString(13), rs.getInt(14), rs.getString(15)));
+            }
+            //Se carga el 
+        }
+        catch(Exception err)
+        {
+            err.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                if(cn!=null)
+                {
+                    if(!cn.isClosed())
+                    {
+                        cn.close();
+                    }
+                }
+            }
+            catch(SQLException err)
+            {
+                err.printStackTrace();
+            }
+        }
+        return resp;
+    } 
+      
+       public List<Personas> ConsEmail()
+    {
+       List<Personas> resp = new ArrayList();
+       Connection cn = new Conexion().getConn();
+        try
+        {
+            PreparedStatement cmd = cn.prepareStatement("select nomb_pers, mail_pers from pers where mail_pers like '%@%'");
+            ResultSet rs = cmd.executeQuery();
+            while(rs.next())
+            {
+                resp.add(new Personas(rs.getString(1), rs.getString(2)));
             }
             //Se carga el 
         }
@@ -71,7 +109,7 @@ public class PersonaCtrl {
             ResultSet rs = cmd.executeQuery();
             while(rs.next())
             {
-                resp = (new Personas(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getBytes(4), rs.getInt(5),rs.getString(6), rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10), rs.getInt(11), rs.getString(12), rs.getString(13), rs.getInt(14)));
+                resp = (new Personas(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getBytes(4), rs.getInt(5),rs.getString(6), rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10), rs.getInt(11), rs.getString(12), rs.getString(13), rs.getInt(14), rs.getString(15)));
             }
             //Se carga el 
         }

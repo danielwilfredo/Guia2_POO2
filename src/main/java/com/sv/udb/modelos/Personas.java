@@ -24,6 +24,7 @@ public class Personas {
     private String fechAlta;
     private String fechaBaja;
     private int esta;
+    private String email;
 
     public int getCodiPers() {
         return codiPers;
@@ -137,7 +138,15 @@ public class Personas {
         this.esta = esta;
     }
 
-    public Personas(int codiPers, String nombPers, String apelPers, byte[] fotoPers, int codiTipoPers, String genePers, String fechaNaciPers, String duiPers, String nitPers, String tipoSangPers, int codiUbicPers, String fechAlta, String fechaBaja, int esta) {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Personas(int codiPers, String nombPers, String apelPers, byte[] fotoPers, int codiTipoPers, String genePers, String fechaNaciPers, String duiPers, String nitPers, String tipoSangPers, int codiUbicPers, String fechAlta, String fechaBaja, int esta, String email) {
         this.codiPers = codiPers;
         this.nombPers = nombPers;
         this.apelPers = apelPers;
@@ -152,10 +161,21 @@ public class Personas {
         this.fechAlta = fechAlta;
         this.fechaBaja = fechaBaja;
         this.esta = esta;
+        this.email = email;
     }
+    
+    public Personas(String nombPers, String email)
+    {
+        this.nombPers = nombPers;
+        this.email = email;
+    }
+    
 
+    
+    
     public Personas() {
     }
+    
     
     
     
