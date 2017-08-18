@@ -40,7 +40,7 @@ public class EnviarcorreoServ extends HttpServlet {
     }
     else
     {
-        System.out.println("Llega aqui");
+      
         String asunto=request.getParameter("asun");
         String mensaje=request.getParameter("mens");
         String[] destino = request.getParameterValues("cmbdesti");

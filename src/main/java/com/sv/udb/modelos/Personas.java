@@ -14,17 +14,19 @@ public class Personas {
     private String nombPers;
     private String apelPers;
     private byte[] fotoPers;
+    private String email;
     private int codiTipoPers;
+    private String tipoPers;
     private String genePers;
     private String fechaNaciPers;
     private String duiPers;
     private String nitPers;
     private String tipoSangPers;
     private int codiUbicPers;
+    private String ubicPers;
     private String fechAlta;
     private String fechaBaja;
     private int esta;
-    private String email;
 
     public int getCodiPers() {
         return codiPers;
@@ -58,12 +60,28 @@ public class Personas {
         this.fotoPers = fotoPers;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public int getCodiTipoPers() {
         return codiTipoPers;
     }
 
     public void setCodiTipoPers(int codiTipoPers) {
         this.codiTipoPers = codiTipoPers;
+    }
+
+    public String getTipoPers() {
+        return tipoPers;
+    }
+
+    public void setTipoPers(String tipoPers) {
+        this.tipoPers = tipoPers;
     }
 
     public String getGenePers() {
@@ -114,6 +132,14 @@ public class Personas {
         this.codiUbicPers = codiUbicPers;
     }
 
+    public String getUbicPers() {
+        return ubicPers;
+    }
+
+    public void setUbicPers(String ubicPers) {
+        this.ubicPers = ubicPers;
+    }
+
     public String getFechAlta() {
         return fechAlta;
     }
@@ -138,50 +164,39 @@ public class Personas {
         this.esta = esta;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
+    public Personas(String nombPers, String email) {
+        this.nombPers = nombPers;
         this.email = email;
     }
+    
+       
+    
+    public Personas()
+    {
+    }
+      
 
-    public Personas(int codiPers, String nombPers, String apelPers, byte[] fotoPers, int codiTipoPers, String genePers, String fechaNaciPers, String duiPers, String nitPers, String tipoSangPers, int codiUbicPers, String fechAlta, String fechaBaja, int esta, String email) {
+    public Personas(int codiPers, String nombPers, String apelPers, byte[] fotoPers, String email, int codiTipoPers, String tipoPers, String genePers, String fechaNaciPers, String duiPers, String nitPers, String tipoSangPers, int codiUbicPers, String ubicPers, String fechAlta, String fechaBaja, int esta) {
         this.codiPers = codiPers;
         this.nombPers = nombPers;
         this.apelPers = apelPers;
         this.fotoPers = fotoPers;
+        this.email = email;
         this.codiTipoPers = codiTipoPers;
+        this.tipoPers = tipoPers;
         this.genePers = genePers;
         this.fechaNaciPers = fechaNaciPers;
         this.duiPers = duiPers;
         this.nitPers = nitPers;
         this.tipoSangPers = tipoSangPers;
         this.codiUbicPers = codiUbicPers;
+        this.ubicPers = ubicPers;
         this.fechAlta = fechAlta;
         this.fechaBaja = fechaBaja;
         this.esta = esta;
-        this.email = email;
     }
     
-    public Personas(String nombPers, String email)
-    {
-        this.nombPers = nombPers;
-        this.email = email;
-    }
+    
     
 
-    
-    
-    public Personas() {
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
