@@ -53,12 +53,12 @@
        </form>
 
     
-         <form method="POST" action="PiezaServ" name="Tabla">                                                                                  
+         <form method="POST" action="" name="Tabla">                                                                                  
        <div class="row">
         <div class="col l12 s12 m12">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-                <span class="card-title"><center>Piezas</center></span>
+                <span class="card-title"><center>Personas Tabla</center></span>
               <table border="1">
                 
                     <th>Cons</th>
@@ -113,6 +113,5 @@
         </div>
       </div>
          </form>
-    </div>
-    </body>    
+        </body>    
 </html>
