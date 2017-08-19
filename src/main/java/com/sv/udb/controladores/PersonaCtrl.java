@@ -29,7 +29,7 @@ public class PersonaCtrl {
             ResultSet rs = cmd.executeQuery();
             while(rs.next())
             {
-              resp.add(new Personas(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getBytes(4),rs.getString(5), rs.getInt(6),rs.getString(7), rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12), rs.getInt(13), rs.getString(14), rs.getString(15),rs.getString(16), rs.getString(17), rs.getInt(18)));
+              resp.add(new Personas(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBytes(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getInt(13) , rs.getString(14) , rs.getString(15) , rs.getString(16), rs.getInt(17)));
             }
             //Se carga el 
         }
@@ -109,7 +109,7 @@ public class PersonaCtrl {
             ResultSet rs = cmd.executeQuery();
             while(rs.next())
             {
-                resp = (new Personas(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getBytes(4), rs.getInt(5),rs.getString(6), rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10), rs.getInt(11), rs.getString(12), rs.getString(13), rs.getInt(14), rs.getString(15)));
+                resp = (new Personas(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBytes(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getInt(13) , rs.getString(14) , rs.getString(15) , rs.getString(16), rs.getInt(17)));
             }
             //Se carga el 
         }
@@ -146,21 +146,22 @@ public class PersonaCtrl {
         Connection cn = new Conexion().getConn();
         try
         {
-            PreparedStatement cmd = cn.prepareStatement("insert into pers values(?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), ?, ?);");
+            PreparedStatement cmd = cn.prepareStatement("insert into pers values(?,?, ?, ?, ?, ?, ?,?, ?, ?, ?,?, now(), ?, 'asgfasfasfas');");
             cmd.setInt(1, obje.getCodiPers());
             cmd.setString(2, obje.getNombPers());
             cmd.setString(3, obje.getApelPers());
             cmd.setBytes(4, obje.getFotoPers());
-            cmd.setInt(5, obje.getCodiTipoPers());
-            cmd.setString(6, obje.getGenePers());
-            cmd.setString(7, obje.getFechaNaciPers());
-            cmd.setString(8, obje.getDuiPers());
-            cmd.setString(9, obje.getNitPers());
-            cmd.setString(10, obje.getTipoSangPers());
-            cmd.setInt(11, obje.getCodiUbicPers());
-            cmd.setString(12, obje.getFechAlta());
-            cmd.setString(13, obje.getFechaBaja());
-            cmd.setInt(14, obje.getEsta());
+            cmd.setString(5, obje.getEmail());
+            cmd.setInt(6, obje.getCodiTipoPers());
+            cmd.setString(7, obje.getGenePers());
+            cmd.setString(8, obje.getFechaNaciPers());
+            cmd.setString(9, obje.getDuiPers());
+            cmd.setString(10, obje.getNitPers());
+            cmd.setString(11, obje.getTipoSangPers());
+            cmd.setInt(12, obje.getCodiUbicPers());
+            cmd.setString(13, obje.getFechAlta());
+            cmd.setString(14, obje.getFechaBaja());
+            cmd.setInt(15, obje.getEsta());
             cmd.executeUpdate();
             resp=true;
         }
@@ -231,21 +232,22 @@ public class PersonaCtrl {
         Connection cn = new Conexion().getConn();
         try
         {
-            PreparedStatement cmd = cn.prepareStatement("update pers set NOMB_PERS=?, APEL_PERS=?, FOTO_PERS=?, CODI_TIPO_PERS=?, GENE_PERS=?, FECH_NACI_PERS=?, DUI_PERS=?, NIT_PERS=?, TIPO_SANG_PERS=?, CODI_UBIC_GEOG=?, FECH_ALTA=?, FECH_BAJA=?, ESTA=? where codi_pers=?");
+            PreparedStatement cmd = cn.prepareStatement("update pers set NOMB_PERS=?, APEL_PERS=?, FOTO_PERS=?, mail_pers=?, CODI_TIPO_PERS=?, GENE_PERS=?, FECH_NACI_PERS=?, DUI_PERS=?, NIT_PERS=?, TIPO_SANG_PERS=?, CODI_UBIC_GEOG=?, FECH_ALTA=?, FECH_BAJA=?, ESTA='saasff' where codi_pers=?;");
             cmd.setString(1, String.valueOf(obje.getNombPers())); 
             cmd.setString(2, String.valueOf(obje.getApelPers()));
             cmd.setString(3, String.valueOf(obje.getFotoPers()));
-            cmd.setString(4, String.valueOf(obje.getCodiTipoPers()));
-            cmd.setString(5, String.valueOf(obje.getGenePers()));
-            cmd.setString(6, String.valueOf(obje.getFechaNaciPers()));
-            cmd.setString(7, String.valueOf(obje.getDuiPers()));
-            cmd.setString(8, String.valueOf(obje.getNitPers()));
-            cmd.setString(9, String.valueOf(obje.getTipoSangPers()));
-            cmd.setString(10, String.valueOf(obje.getCodiUbicPers()));
-            cmd.setString(11, String.valueOf(obje.getFechAlta()));
-            cmd.setString(12, String.valueOf(obje.getFechaBaja()));
-            cmd.setString(13, String.valueOf(obje.getEsta()));
-            cmd.setString(14, String.valueOf(obje.getCodiPers()));
+            cmd.setString(4, String.valueOf(obje.getEmail()));
+            cmd.setString(5, String.valueOf(obje.getCodiTipoPers()));
+            cmd.setString(6, String.valueOf(obje.getGenePers()));
+            cmd.setString(7, String.valueOf(obje.getFechaNaciPers()));
+            cmd.setString(8, String.valueOf(obje.getDuiPers()));
+            cmd.setString(9, String.valueOf(obje.getNitPers()));
+            cmd.setString(10, String.valueOf(obje.getTipoSangPers()));
+            cmd.setString(11, String.valueOf(obje.getCodiUbicPers()));
+            cmd.setString(12, String.valueOf(obje.getFechAlta()));
+            cmd.setString(13, String.valueOf(obje.getFechaBaja()));
+            cmd.setString(14, String.valueOf(obje.getEsta()));
+            cmd.setString(15, String.valueOf(obje.getCodiPers()));
             cmd.executeUpdate();
             resp=true;
         }

@@ -1,3 +1,5 @@
+<%@page import="com.sv.udb.controladores.PersonaCtrl"%>
+<%@page import="com.sv.udb.modelos.Personas"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -58,25 +60,44 @@
             <div class="card-content white-text">
                 <span class="card-title"><center>Piezas</center></span>
               <table border="1">
-                <tr>
+                
                     <th>Cons</th>
-                    <th>Nombre Pieza</th>
-                    <th>Tipo Pieza</th>
-                     <th>Marca Pieza</th>
-                </tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                     <th>Algo</th>
+                     <th>Algo 2</th>
+                     <th>Algo 3</th>
+                     <th>Algo 4</th>
+                     <th>Algo 5</th>
+                     <th>Algo 6</th>
+                     <th>Algo 7</th>
+                     <th>Algo 8</th>
+                     <th>Algo 9</th>
+                     <th>Algo 27</th>
+
+                
                 <%
-                 for(Piezas temp : new PiezasCtrl().consTodo())
+                 for(Personas temp : new PersonaCtrl().consTodo())
                  {
                      
             %>
                    
                 <tr>
-                    <td><input id="<%=temp.getCodiPiez()%>" name="codiEquiRadi" type="radio" value="<%=temp.getCodiPiez()%>"/>
-                     <label for="<%=temp.getCodiPiez()%>"></label></td>
-                    <td><%=temp.getNombPiez()%></td>
-                    <td><%=temp.getTipoPiez()%></td>
-                    <td><%=temp.getMarcPiez()%></td>
-                    
+                    <td><input id="<%=temp.getCodiPers()%>" name="codiEquiRadi" type="radio" value="<%=temp.getCodiPers()%>"/>
+                     <label for="<%=temp.getCodiPers()%>"></label></td>
+                    <td><%=temp.getNombPers()%></td>
+                    <td><%=temp.getApelPers()%></td>
+                 <!--   <td>< %=temp.getFotoPers()%></td>-->
+                    <td><%=temp.getEmail()%></td>
+                    <td><%=temp.getTipoPers()%></td>
+                    <td><%=temp.getGenePers()%></td>
+                    <td><%=temp.getFechaNaciPers()%></td>
+                    <td><%=temp.getDuiPers()%></td>
+                    <td><%=temp.getNitPers()%></td>
+                    <td><%=temp.getTipoSangPers()%></td>
+                    <td><%=temp.getUbicPers()%></td>
+                    <td><%=temp.getFechAlta()%></td>
+                    <td><%=temp.getFechaBaja()%></td>
             </tr>
             <%
                 }

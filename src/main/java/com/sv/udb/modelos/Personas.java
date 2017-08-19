@@ -164,12 +164,21 @@ public class Personas {
         this.esta = esta;
     }
 
-    public Personas(String nombPers, String email) {
-        this.nombPers = nombPers;
-        this.email = email;
+    public Personas(int codiTipoPers, String tipoPers) {
+        this.codiTipoPers = codiTipoPers;
+        this.tipoPers = tipoPers;
     }
+
+    public Personas(int codiPers, int codiUbicPers, String ubicPers) {
+        this.codiPers = codiPers;
+        this.codiUbicPers = codiUbicPers;
+        this.ubicPers = ubicPers;
+    }
+
+
+
     
-       
+    
     
     public Personas()
     {
@@ -195,7 +204,11 @@ public class Personas {
         this.fechaBaja = fechaBaja;
         this.esta = esta;
     }
-    
+        
+    public Personas(String nombPers, String email) {
+        this.nombPers = nombPers;
+        this.email = email;
+    }
     
     
 
