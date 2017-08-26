@@ -91,8 +91,8 @@ public class PersonaServ extends HttpServlet {
             {
                 
                 int codi = Integer.parseInt(
-                        request.getParameter("codiJugaRadi").isEmpty() 
-                        ? "-1" : request.getParameter("codiJugaRadi"));//Creamos una variable que me almacene
+                        request.getParameter("codiradi").isEmpty() 
+                        ? "-1" : request.getParameter("codiradi"));//Creamos una variable que me almacene
                 //el codigo seleccionado dependiendo del radio buton seleccionado
                Personas obje = new PersonaCtrl().consTodo2(codi);
                if(obje != null)
@@ -114,7 +114,7 @@ public class PersonaServ extends HttpServlet {
             else if (CRUD.equals("Eliminar"))
             {
                 Personas obje = new Personas();
-                int codi= Integer.parseInt(request.getParameter("codiJugaRadi").isEmpty() ? "-1" : request.getParameter("codiJugaRadi"));
+                int codi= Integer.parseInt(request.getParameter("codiradi").isEmpty() ? "-1" : request.getParameter("codiradi"));
                 //obje.setCodiJuga(codi);
                 if(new PersonaCtrl().elim(obje))
                 {
@@ -128,13 +128,19 @@ public class PersonaServ extends HttpServlet {
             else if(CRUD.equals("Modificar"))
             {
                 Personas obje = new Personas();
-               /* obje.setCodiJuga(Integer.parseInt(request.getParameter("codiJuga")));
-                obje.setNombJuga(request.getParameter("nombJuga"));
-                obje.setEdadJuga(request.getParameter("edadJuga"));
-                obje.setAltuJuga(Integer.parseInt(request.getParameter("altuJuga")));
-                obje.setPesoJuga(request.getParameter("pesoJuga"));
-                obje.setCodiEqui(Integer.parseInt(request.getParameter("cmbEqui")));¨*/
-                 //codigo para guardar la imagen
+               obje.setCodiPers(Integer.parseInt(request.getParameter("codi")));
+                obje.setNombPers(request.getParameter("nomb"));
+                obje.setApelPers(request.getParameter("apel"));
+                obje.setEmail(request.getParameter("email"));
+                obje.setTipoSangPers(request.getParameter("sang"));
+                obje.setFechaNaciPers(request.getParameter("fechaNaci"));
+                obje.setDuiPers(request.getParameter("dui"));
+                obje.setNitPers(request.getParameter("nit"));
+                obje.setFechaAlta(request.getParameter("falta"));
+                obje.setFechaBaja(request.getParameter("fbaja"));
+                obje.setCodiUbicPers(Integer.parseInt(request.getParameter("cmbubicPers")));
+                obje.setCodiTipoPers(Integer.parseInt(request.getParameter("cmbtipoPers")));
+                                 //codigo para guardar la imagen
                 Part filepart = request.getPart("foto"); //obtiene la foto
                 int SizeImg = (int)filepart.getSize();//el tamaño de la foto
                 byte[] img = null; //declaramos variable para guardar la foto

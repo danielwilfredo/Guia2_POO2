@@ -126,7 +126,7 @@
             %>
                    
                 <tr>
-                    <td><input id="<%=temp.getCodiPers()%>" name="codi" type="radio" value="<%=temp.getCodiPers()%>"/>
+                    <td><input id="<%=temp.getCodiPers()%>" name="codiradi" type="radio" value="<%=temp.getCodiPers()%>"/>
                      <label for="<%=temp.getCodiPers()%>"></label></td>
                     <td><%=temp.getNombPers()%></td>
                     <td><%=temp.getApelPers()%></td>
