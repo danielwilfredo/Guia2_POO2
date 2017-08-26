@@ -221,8 +221,9 @@ public class PersonaCtrl {
         boolean resp = false;
         Connection cn = new Conexion().getConn();
         try
-        {
+        { System.err.println("antes hace la consulta del insert");
             PreparedStatement cmd = cn.prepareStatement("insert into pers values(?,?, ?, ?, ?, ?, ?,?, ?, ?, ?,?, now(), ?, 'asgfasfasfas');");
+            System.err.println("hace la consulta del insert");
             cmd.setInt(1, obje.getCodiPers());
             cmd.setString(2, obje.getNombPers());
             cmd.setString(3, obje.getApelPers());
@@ -236,7 +237,6 @@ public class PersonaCtrl {
             cmd.setString(11, obje.getTipoSangPers());
             cmd.setInt(12, obje.getCodiUbicPers());
             cmd.setString(13, obje.getFechaAlta());
-            cmd.setString(14, obje.getFechaBaja());
             cmd.executeUpdate();
             resp=true;
         }

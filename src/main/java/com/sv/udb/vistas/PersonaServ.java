@@ -45,7 +45,9 @@ public class PersonaServ extends HttpServlet {
             String CRUD = request.getParameter("btnEqui");
             if(CRUD.equals("Guardar"))
             {
+                System.err.println("Esta en el guardar");
                 Personas obje = new Personas();
+                 System.err.println("casi enviando valores");
                 obje.setCodiPers(Integer.parseInt(request.getParameter("codi")));
                 obje.setNombPers(request.getParameter("nomb"));
                 obje.setApelPers((request.getParameter("apel")));
@@ -68,11 +70,13 @@ public class PersonaServ extends HttpServlet {
                     try(DataInputStream dataImg = new DataInputStream(filepart.getInputStream()))
                     {
                         dataImg.readFully(img);
+                        System.err.println("agarra la imagen");
                     }
                 }
                 if(SizeImg > 0)
                 {
                     obje.setFoto(img);
+                    System.err.println("algo imagen");
                 }
                 if(new PersonaCtrl().guar(obje))
                 {
