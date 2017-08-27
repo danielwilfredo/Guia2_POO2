@@ -13,7 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-            
+        <a href="enviarcorreo.jsp"><h2>Enviar Correo</h2></a>   
         <form method="POST" action="PersonaServ" name="Demo" enctype="multipart/form-data"> 
            <div class="row">
         <div class="col l12 s12 m12">

@@ -19,7 +19,9 @@
     <body class="teal lighten-4">
         <div class="container">
             <h1><center>Formulario Correo</center></h1>
+                
             <form method="POST" action="EnviarcorreoServ">
+                 <h1>${mensAler}</h1>    
        <div class="row">
         <div class="col s12 m6 l12">
           <div class="card blue-grey darken-1">
@@ -79,6 +81,10 @@
           <input id="asun" name="asun" type="text" class="validate">
           <label for="asun" class="white-text">Asunto</label>
         </div>
+                            <div class="input-field">
+          <input id="ruta" name="ruta" type="text" class="validate">
+          <label for="ruta" class="white-text">Archivo Adjunto</label>
+        </div>
   </div>
     
             </div>
@@ -86,18 +92,26 @@
                 <div class="input-field col s12">
                     <textarea id="mens" name="mens" class="materialize-textarea white-text"></textarea>
                     <label for="textarea1" class="white-text">Mensaje:</label>
+                    
                 </div>
+                
             </div>
               <div class="card-action">
                 <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
                 </button>
               <button class="btn waves-effect red" type="submit" name="action">Cancelar
                 </button>
+                  <br>
+                  <br>
+                  <span class="btn waves-effect red">
+                      Para adjuntar el archivo, debera copiar la url de la ubicacion del archivo a adjuntar deseado.
+                  </span>
             </div>
           </div>
         </div>
       </div>
         </form>
+            
         </div>
          
     </body>

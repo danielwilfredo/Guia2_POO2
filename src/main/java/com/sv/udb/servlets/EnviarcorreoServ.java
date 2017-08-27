@@ -33,7 +33,7 @@ public class EnviarcorreoServ extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         boolean esValido = request.getMethod().equals("POST");
-    String mens="";
+    String menss="";
     if(!esValido)
     {
         response.sendRedirect(request.getContextPath()+"/enviarcorreo.jsp");
@@ -43,15 +43,36 @@ public class EnviarcorreoServ extends HttpServlet {
       
         String asunto=request.getParameter("asun");
         String mensaje=request.getParameter("mens");
+        String ruta = request.getParameter("ruta");
         String[] destino = request.getParameterValues("cmbdesti");
-        for(String mail : destino)
+     try {
+         for(String mail : destino)
         {
             EnviarCorreo envi = new EnviarCorreo(mensaje, mail, asunto);
             envi.SendMail();
+            if (ruta != null)
+            {
+                envi.enviarpdf(ruta, mensaje , asunto);
+
+            }
+             else
+               {
+                   menss = "hubo un problema al enviar el archivo";
+               }
+                          request.setAttribute("mensAler",menss);
+            request.getRequestDispatcher("/enviarcorreo.jsp").forward(request, response);
+                     
         }
+    
+            }
+                
+             catch (Exception e) {
+            }
+            
     }
-      
     }
+
+    
 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -94,4 +115,5 @@ public class EnviarcorreoServ extends HttpServlet {
     }// </editor-fold>
 
     }
+
 
