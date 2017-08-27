@@ -193,6 +193,24 @@ public class Personas {
         this.ubicPers = ubicPers;
         this.fechaAlta = fechaAlta;
     }
+
+    public Personas(int codiPers, String nombPers, String apelPers, byte[] foto, String email, int codiTipoPers, String genePers, String fechaNaciPers, String duiPers, String nitPers, String tipoSangPers, int codiUbicPers, String fechaAlta, String fechaBaja) {
+        this.codiPers = codiPers;
+        this.nombPers = nombPers;
+        this.apelPers = apelPers;
+        this.foto = foto;
+        this.email = email;
+        this.codiTipoPers = codiTipoPers;
+        this.genePers = genePers;
+        this.fechaNaciPers = fechaNaciPers;
+        this.duiPers = duiPers;
+        this.nitPers = nitPers;
+        this.tipoSangPers = tipoSangPers;
+        this.codiUbicPers = codiUbicPers;
+        this.fechaAlta = fechaAlta;
+        this.fechaBaja = fechaBaja;
+    }
+
     
     
     

@@ -97,12 +97,18 @@ public class PersonaServ extends HttpServlet {
                Personas obje = new PersonaCtrl().consTodo2(codi);
                if(obje != null)
                 {
-                   /* request.setAttribute("codiJuga", obje.getCodiJuga());
-                    request.setAttribute("nombJuga", obje.getNombJuga());
-                    request.setAttribute("edadJuga", obje.getEdadJuga());
-                    request.setAttribute("altuJuga", obje.getAltuJuga());
-                    request.setAttribute("pesoJuga", obje.getPesoJuga());
-                    request.setAttribute("cmbEqui", obje.getCodiEqui());*/
+                    request.setAttribute("codi", obje.getCodiPers());
+                    request.setAttribute("nomb", obje.getNombPers());
+                    request.setAttribute("apel", obje.getApelPers());
+                    request.setAttribute("gene", obje.getGenePers());
+                    request.setAttribute("fechNaci", obje.getFechaNaciPers());
+                    request.setAttribute("email", obje.getEmail());
+                    request.setAttribute("fbaja", obje.getFechaBaja());
+                    request.setAttribute("falta", obje.getFechaAlta());
+                    request.setAttribute("dui", obje.getDuiPers());
+                    request.setAttribute("nit", obje.getNitPers());
+                    request.setAttribute("sang", obje.getTipoSangPers());
+                    
                    
                 }
                 else
@@ -115,7 +121,7 @@ public class PersonaServ extends HttpServlet {
             {
                 Personas obje = new Personas();
                 int codi= Integer.parseInt(request.getParameter("codiradi").isEmpty() ? "-1" : request.getParameter("codiradi"));
-                //obje.setCodiJuga(codi);
+                   obje.setCodiPers(codi);
                 if(new PersonaCtrl().elim(obje))
                 {
                     mens="Datos Eliminados";
@@ -133,7 +139,8 @@ public class PersonaServ extends HttpServlet {
                 obje.setApelPers(request.getParameter("apel"));
                 obje.setEmail(request.getParameter("email"));
                 obje.setTipoSangPers(request.getParameter("sang"));
-                obje.setFechaNaciPers(request.getParameter("fechaNaci"));
+                obje.setGenePers(request.getParameter("gene"));
+                obje.setFechaNaciPers(request.getParameter("fechNaci"));
                 obje.setDuiPers(request.getParameter("dui"));
                 obje.setNitPers(request.getParameter("nit"));
                 obje.setFechaAlta(request.getParameter("falta"));

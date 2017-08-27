@@ -79,7 +79,7 @@
             
         </SELECT> <br><br>
              <h5>Fecha Alta</h5>
-            <input readonly type="text" name="falta" id="falta" value="${falta}"/><br/><br/>              
+            <input type="text" name="falta" id="falta" value="${falta}"/><br/><br/>              
             <h5>Fecha Baja</h5>
             <input type="text" name="fbaja" id="fbaja" value="${fbaja}"/><br/><br/>              
           </div>
@@ -96,7 +96,7 @@
        </form>
 
     
-         <form method="POST" action="" name="Tabla">                                                                                  
+         <form method="POST" action="PersonaServ" name="Tabla">                                                                                  
        <div class="row">
         <div class="col l12 s12 m12">
           <div class="card blue-grey darken-1">

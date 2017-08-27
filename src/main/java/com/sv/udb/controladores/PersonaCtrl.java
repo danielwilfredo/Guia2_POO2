@@ -180,12 +180,14 @@ public class PersonaCtrl {
        Connection cn = new Conexion().getConn();
         try
         {
-            PreparedStatement cmd = cn.prepareStatement("select * from pers where codi_pers=?");
+            PreparedStatement cmd = cn.prepareStatement("select pers.CODI_PERS, pers.NOMB_PERS, pers.APEL_PERS, pers.FOTO_PERS,\n" +
+"pers.MAIL_PERS, pers.CODI_TIPO_PERS, pers.GENE_PERS, pers.FECH_NACI_PERS, pers.DUI_PERS,\n" +
+"pers.NIT_PERS, pers.TIPO_SANG_PERS, pers.CODI_UBIC_GEOG, pers.FECH_ALTA, pers.FECH_BAJA from pers where codi_pers=?");
             cmd.setString(1, String.valueOf(id));
             ResultSet rs = cmd.executeQuery();
             while(rs.next())
             {
-                resp = (new Personas(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBytes(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getInt(13) , rs.getString(14) , rs.getString(15) , rs.getString(16)));
+                resp = (new Personas(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBytes(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getInt(12), rs.getString(13), rs.getString(14)));
             }
             //Se carga el 
         }
@@ -307,7 +309,7 @@ public class PersonaCtrl {
         Connection cn = new Conexion().getConn();
         try
         {
-            PreparedStatement cmd = cn.prepareStatement("update pers set NOMB_PERS=?, APEL_PERS=?, FOTO_PERS=?, mail_pers=?, CODI_TIPO_PERS=?, GENE_PERS=?, FECH_NACI_PERS=?, DUI_PERS=?, NIT_PERS=?, TIPO_SANG_PERS=?, CODI_UBIC_GEOG=?, FECH_ALTA=?, FECH_BAJA=?, ESTA='saasff' where codi_pers=?;");
+            PreparedStatement cmd = cn.prepareStatement("update pers set NOMB_PERS=?, APEL_PERS=?, FOTO_PERS=?, mail_pers=?, CODI_TIPO_PERS=?, GENE_PERS=?, FECH_NACI_PERS=?, DUI_PERS=?, NIT_PERS=?, TIPO_SANG_PERS=?, CODI_UBIC_GEOG=?, FECH_ALTA=?, FECH_BAJA=? where codi_pers=?;");
             cmd.setString(1, String.valueOf(obje.getNombPers())); 
             cmd.setString(2, String.valueOf(obje.getApelPers()));
             cmd.setString(3, String.valueOf(obje.getFoto()));
@@ -321,13 +323,13 @@ public class PersonaCtrl {
             cmd.setString(11, String.valueOf(obje.getCodiUbicPers()));
             cmd.setString(12, String.valueOf(obje.getFechaAlta()));
             cmd.setString(13, String.valueOf(obje.getFechaBaja()));
-            cmd.setString(15, String.valueOf(obje.getCodiPers()));
+            cmd.setString(14, String.valueOf(obje.getCodiPers()));
             cmd.executeUpdate();
             resp=true;
         }
         catch(Exception ex)
         {
-            System.err.println("Error al modificar el Jugador " + ex.getMessage());
+            System.err.println("Error al modificar el registro " + ex.getMessage());
         }
         finally
         {
